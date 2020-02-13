@@ -15,7 +15,8 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   // do your magic!
-  postdb.getById(req.param.id)
+  const { id } = req.params;
+  postdb.getById(id)
   .then(user => {
     res.status(200).json(user)
   }).catch(error => {
@@ -26,7 +27,8 @@ router.get('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // do your magic!
-  postdb.remove(req.param.id)
+  const { id } = req.params;
+  postdb.remove(id)
   .then(count => {
     res.status(200).json(count)
   }).catch(error => {
